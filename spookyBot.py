@@ -110,7 +110,6 @@ async def ud(*args):
         print(f'User generated the error {e} after entering: "{args}"')
         await bot.say("Sorry, your word or phrase wasn't found. :(")
 
-
 @bot.command(pass_context=True)
 async def info(user: discord.Member):
     embed = discord.Embed(title="{}'s info".format(user.name), description=\
