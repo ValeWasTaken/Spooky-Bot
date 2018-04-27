@@ -3,8 +3,6 @@ Spooky Bot
 
 Spooky Bot (SB) is a multi-purpose Discord bot written in Python 3.6.4
 
-SpookyBot is still in development and could very much use any help, please feel free to look over the code, ask questions, and help improve it! You can reach me on Discord at Vale#0001 or through email at vehk@protonmail.com
-
 Version 0.5.21 includes features such as:
 - !shorten -- Uses tiny_url.com to shorten your URL.
 - !imgur -- Scrapes a given sub-reddit and creates an album of images from it on Imgur.
