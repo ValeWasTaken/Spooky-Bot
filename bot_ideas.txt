@@ -1,0 +1,91 @@
+Curious as to possible new features for Spooky Bot? Want to recommend your own addition? 
+Or best of all, maybe you want to contribute code to Spooky Bot?
+
+Regardless, here's a list of current feature ideas that have yet to be implemented into Spooky Bot!
+
+- Crypto price checker / helper
+  This would let the user check the price of any noteworthy cryptocurrency (or at least the top 3-10).
+  It could also perhaps give additional details such as price change percentage or the ability to 
+  convert prices of one crypto currency to another. So for example 1 BTC = ?? LTC.
+  It should also ideally list the top 10 currencies and a summary of their data.
+  
+ - Currency converter
+  Could perhaps handle the crypto currency conversion from above instead.
+  Mainly should be able to convert between most common currencies and accept their symbols (such as $).
+  
+ - Music player
+  This is a big one that has a ton of different possibilities to explore. Such ideas might include:
+    - Radio player
+    - Song request
+    - Playlist player
+    - Spotify integration
+    - Playing YouTube music videos
+    - Playing soundcloud songs
+    - And much more.
+    
+- Meme assistant
+  Could take inputs such as "!meme feelsGoodMan" and then upload a picture to the channel of the meme.
+  Could allow meme creation, such as "!makememe goodguygreg 'borrows $5' 'pays you back $10'"
+  
+- Remind Me functionality
+  Similar to the bot on Reddit and other places, lets the user ask to be reminded 
+  at a set time, perhaps with a description. So for example : 
+  "!remindMe 3 days 'Check PO box'"
+  
+- Auto mod phrases / phishing links / unwanted words
+  Warns the user, deletes the message, kicks them, bans them, whatever the admin/mod wants.
+  
+- Role color change
+  Allows the user to change the color of their role.
+  
+- <subject> facts
+  This one is really easy to implement, it's just a matter of gathering facts.
+  Find a bunch of facts about cats, dogs, history, whatever. Put it in a list and 
+  then Spooky Bot can call from it with !<subject> facts.
+
+- Time checker
+  Ideally not only could a user check the current time for their timezone, but also expand this 
+  command to handle all kinds of inputs like time between dates and timezone conversion.
+  
+- Screenshot a website
+  Allows the user to ask a bot to screenshot a website and upload the result. 
+  This would likely have to be only on a list of approved websites to reduce trolling.
+  
+- Flip text
+  Flips the text given upside. Maybe also offer other text effects like Zalgo.
+  
+- Dictionary definiton of words
+  Just like urban dictionary, but for normal words.
+  
+- XKCD
+  Generate a particular or random XKCD comic.
+
+- IMDB assistant
+  Return IMDB results for a movie's plot, rating, trailer, etc.
+  
+- Starboard
+  Implement a system to allow channels to have their own #star-board like in discord.gg/vale
+  
+- Cleverbot interaction
+  Allows the user to talk to Cleverbot or something similar.
+  
+- Akinator interaction
+  Allows the user to play the Akinator game.
+  
+- Omegle chat intercation
+  Allows Omegle users to chat inside the channel. Should allow variables such as setting topics, 
+  the ability to kick users, and so forth.
+  
+- 8 ball
+  Pretty straight forward, just add a magic 8 ball function that would work similar to f_facts.py
+  
+- Impersonate
+  Use Markov chains to generate sentences based on what a person has said in the past.
+  
+- Point system
+  Similar to used on Twitch. Allow users to generate points for posting / being in the server / 
+  typing a command every X amount of time. Let them use these points to duel each other, 
+  play roulette, or other fun games.
+  
+- Leaderboard system
+  - Record post count, time in server, points, and so forth.
