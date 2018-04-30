@@ -4,10 +4,12 @@ Or best of all, maybe you want to contribute code to Spooky Bot?
 Regardless, here's a list of current feature ideas that have yet to be implemented into Spooky Bot!
 
 - Crypto price checker / helper
-  This would let the user check the price of any noteworthy cryptocurrency (or at least the top 3-10).
-  It could also perhaps give additional details such as price change percentage or the ability to 
-  convert prices of one crypto currency to another. So for example 1 BTC = ?? LTC.
-  It should also ideally list the top 10 currencies and a summary of their data.
+  Currently I have a function in place to check the price of a top 100 cryptocurrency using it's symbol.
+  I also have the groundwork made for a function to display all the information for the top 1-100 currencies.
+  However, my approach I am using currently is slow and needs optimization.
+  As for new features, we could add a converter. (Ex: 1 BTC = ?? LTC.)
+  The biggest factor missing however is the ability to find info on non-top-100 currencies.
+  We could also have a flag for in-depth info, such as price change over longer periods and history. Maybe even a graph.
   
  - Currency converter
   Could perhaps handle the crypto currency conversion from above instead.
