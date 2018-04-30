@@ -1,4 +1,4 @@
-# Spooky Bot Version 0.5.21
+# Spooky Bot Version 0.5.30
 # Written in Python 3.6.4
 import discord
 from discord.ext import commands
@@ -8,10 +8,11 @@ import wolfram_alpha
 from is_it_halloween import is_it_halloween
 from f_random import f_roll, f_flip
 from f_facts import f_facts
+import f_commands
+import f_crypto
+import imgur_upload
 import urban_define
 import shorten_url
-import f_commands
-import imgur_upload
 
 bot = commands.Bot(command_prefix='!', description=
                    "Spooky Bot - So good it's spooky!", pm_help=True)
@@ -61,6 +62,27 @@ async def roll(num : str=None):
     except Exception as e:
         print(f'User generated the error {e} after entering: "{num}')
         await bot.say(f'Please use the correct format: !roll number')
+
+
+@bot.command()
+async def check(symbol: str = None):
+    if not symbol:
+        await bot.say("Please use the correct format: '!check symbol'"
+                      "\nEx: '!check BTC' to check Bitcoin stats.")
+    else:
+        try:
+            symbol = symbol.upper()
+            rank, crypto_name, sign, worth, change = f_crypto.crypto_info(symbol)
+            embed = discord.Embed(title=f"{crypto_name} info", color=0x00ff00)
+            embed.add_field(name="Rank: ", value=rank)
+            embed.add_field(name="Symbol: ", value=sign)
+            embed.add_field(name="Price (24h change)",
+                            value=f"{worth} ({change})")
+            await bot.say(embed=embed)
+        except Exception as e:
+            print(f'User generated the error {e} after entering: {symbol}')
+            await bot.say("Please use the correct format: '!check symbol'"
+                          "\nEx: '!check BTC' to check Bitcoin stats.")
 
 
 @bot.command()
@@ -143,5 +165,6 @@ async def info(user: discord.Member):
     embed.add_field(name="Joined", value=user.joined_at)
     embed.set_thumbnail(url=user.avatar_url)
     await bot.say(embed=embed)
-
+    
+    
 bot.run("INSERT BOT'S SECRET TOKEN HERE")
