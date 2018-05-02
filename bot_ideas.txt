@@ -53,9 +53,6 @@ Regardless, here's a list of current feature ideas that have yet to be implement
   Allows the user to ask a bot to screenshot a website and upload the result. 
   This would likely have to be only on a list of approved websites to reduce trolling.
   
-- Flip text
-  Flips the text given upside. Maybe also offer other text effects like Zalgo.
-  
 - Dictionary definiton of words
   Just like urban dictionary, but for normal words.
   
