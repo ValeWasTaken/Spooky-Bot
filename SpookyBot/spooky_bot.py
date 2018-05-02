@@ -1,4 +1,4 @@
-# Spooky Bot Version 0.5.31
+# Spooky Bot Version 0.5.311
 # Written in Python 3.6.4
 import discord
 from discord.ext import commands
@@ -44,12 +44,11 @@ async def batfact():
 async def commands(query : str=None):
     # Returns a list of commands or information about specific commands.
     if not query:
-        await bot.say(f_commands.help('commands'))
+        await bot.say(f_commands.h('commands'))
     try:
-        await bot.say(f_commands.help(query))
+        await bot.say(f_commands.h(query))
     except Exception as e:
-        print(f'User generated the error {e} after entering {query} in help.')
-        await bot.say('Sorry, something went wrong. :(')
+        print(f'User generated the error {e} after entering {query} in commands.')
 
 
 @bot.command()
