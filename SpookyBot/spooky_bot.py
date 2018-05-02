@@ -1,4 +1,4 @@
-# Spooky Bot Version 0.5.30
+# Spooky Bot Version 0.5.31
 # Written in Python 3.6.4
 import discord
 from discord.ext import commands
@@ -7,12 +7,13 @@ import wolfram_alpha
 # Self-made functions / libraries
 from is_it_halloween import is_it_halloween
 from f_random import f_roll, f_flip
+from f_flip_text import f_flip_text
 from f_facts import f_facts
-import f_commands
-import f_crypto
-import imgur_upload
 import urban_define
 import shorten_url
+import f_commands
+import imgur_upload
+import f_crypto
 
 bot = commands.Bot(command_prefix='!', description=
                    "Spooky Bot - So good it's spooky!", pm_help=True)
@@ -83,6 +84,15 @@ async def check(symbol: str = None):
             print(f'User generated the error {e} after entering: {symbol}')
             await bot.say("Please use the correct format: '!check symbol'"
                           "\nEx: '!check BTC' to check Bitcoin stats.")
+
+
+@bot.command()
+async def reverse(*args):
+    if not args:
+        await bot.say(f_flip_text('What do you want me to flip?'))
+    else:
+        message = ' '.join(args)
+        await bot.say(f_flip_text(message))
 
 
 @bot.command()
