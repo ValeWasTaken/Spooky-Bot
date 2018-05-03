@@ -1,8 +1,7 @@
-# Spooky Bot Version 0.5.33
+# Spooky Bot Version 0.5.331
 # Written in Python 3.6.4
 import discord
 from discord.ext import commands
-import wolfram_alpha
 
 # Self-made functions / libraries
 from is_it_halloween import is_it_halloween
@@ -14,6 +13,7 @@ import shorten_url
 import f_commands
 import imgur_upload
 import f_crypto
+import wolfram_alpha
 
 bot = commands.Bot(command_prefix='!', description=
                    "Spooky Bot - So good it's spooky!", pm_help=True)
