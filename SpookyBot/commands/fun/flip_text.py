@@ -3,7 +3,7 @@
 # ˙(ǝsɐɔɹǝʍoן puɐ) uʍop ǝpısdn pǝddıןɟ ǝbɐssǝɯ ɐ suɹnʇǝɹ
 
 
-def f_flip_text(message):
+def flip_text(message):
     message = message.lower()
     alphabet = "abcdefghijklmnopqrstuvwxyz!?()[].<>"
     flipped_alphabet = "ɐqɔpǝɟbɥıظʞןɯuodbɹsʇnʌʍxʎz¡¿)(][˙><"

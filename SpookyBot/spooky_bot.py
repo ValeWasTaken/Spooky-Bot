@@ -1,25 +1,31 @@
 # Spooky Bot Version 0.5.331
 # Written in Python 3.6.4
+import os
+import sys
+sys.path.append(os.path.realpath('./commands/fun'))
+sys.path.append(os.path.realpath('./commands/reference'))
+sys.path.append(os.path.realpath('./commands/utility'))
+
 import discord
 from discord.ext import commands
 
 import configparser
 config = configparser.ConfigParser()
-config.read('SpookyBot\\auth.ini')
+config.read('auth.ini')
 
 # Self-made functions / libraries
 from is_it_halloween import is_it_halloween
-from f_random import f_roll, f_flip
-from f_flip_text import f_flip_text
-from f_facts import f_facts
+import random_util as rand
+from flip_text import flip_text
+from random_fact import random_fact
 import urban_define
 import shorten_url
-import f_commands
-import imgur_upload
-import f_crypto
+import command_help
+# import imgur_upload
+import crypto
 import wolfram_alpha
 
-bot = commands.Bot(command_prefix='!', description=
+bot = commands.Bot(command_prefix='b!', description=
                    "Spooky Bot - So good it's spooky!", pm_help=True)
 client = discord.Client(max_messages=100)
 
@@ -47,8 +53,8 @@ async def answer(*args):
 
 @bot.command()
 async def batfact():
-    # Returns random bat fact for the user.
-    await bot.say(f_facts('bat'))
+    """Returns random bat fact for the user."""
+    await bot.say(random_fact('bat'))
 
 
 @bot.command()
@@ -59,7 +65,7 @@ async def check(symbol: str = None):
     else:
         try:
             symbol = symbol.upper()
-            rank, crypto_name, sign, worth, change = f_crypto.crypto_info(symbol)
+            rank, crypto_name, sign, worth, change = crypto.crypto_info(symbol)
             embed = discord.Embed(title=f"{crypto_name} info", color=0x00ff00)
             embed.add_field(name="Rank: ", value=rank)
             embed.add_field(name="Symbol: ", value=sign)
@@ -74,23 +80,23 @@ async def check(symbol: str = None):
 
 @bot.command()
 async def commands(query: str=None):
-    # Returns a list of commands or information about specific commands.
+    """Returns a list of commands or information about specific commands."""
     if not query:
-        await bot.say(f_commands.h('commands'))
+        await bot.say(command_help.h('commands'))
     try:
-        await bot.say(f_commands.h(query))
+        await bot.say(command_help.h(query))
     except Exception as e:
         print(f'User generated the error {e} after entering {query} in commands.')
 
 
 @bot.command()
 async def flip(num: str=None):
-    # Flips coins to determine heads or tails for the user.
+    """Flips coins to determine heads or tails for the user."""
     if not num or not num[0].isdigit() and not num[0].startswith('-'):
-        await bot.say(f_flip(1))
+        await bot.say(rand.flip(1))
         return
     try:
-        await bot.say(f_flip(int(num)))
+        await bot.say(rand.flip(int(num)))
     except Exception as e:
         print(f'User generated the error {e} after entering: "{num}"')
         await bot.say('Please use the correct format: !flip number')
@@ -98,20 +104,20 @@ async def flip(num: str=None):
 
 @bot.command()
 async def halloween():
-    # Returns time until Halloween (PST) for the user.
+    """Returns time until Halloween (PST) for the user."""
     await bot.say(is_it_halloween())
 
 
 @bot.command()
 async def imgur(*args):
-    # Scrapes a given sub-reddit for pictures and uploads them into
-    # an Imgur album.
+    """Scrapes a given sub-reddit for pictures and uploads them into
+    an Imgur album."""
     await bot.say(imgur_upload.main(args))
 
 
 @bot.command(pass_context=True)
 async def info(user: discord.Member):
-    # Provides information about a user in the channel.
+    """Provides information about a user in the channel."""
     embed = discord.Embed(title="{}'s info".format(user.name), description=\
                           "Here's what I could find.", color=0x00ff00)
     embed.add_field(name="Name", value=user.name, inline=True)
@@ -126,28 +132,28 @@ async def info(user: discord.Member):
 @bot.command()
 async def reverse(*args):
     if not args:
-        await bot.say(f_flip_text('What do you want me to flip?'))
+        await bot.say(flip_text('What do you want me to flip?'))
     else:
         message = ' '.join(args)
-        await bot.say(f_flip_text(message))
+        await bot.say(flip_text(message))
 
 
 @bot.command()
 async def roll(num: str=None):
-    # Rolls a random number for the user.
+    """Rolls a random number for the user."""
     if not num or not num[0].isdigit() and not num[0].startswith('-'):
-        await bot.say(f_roll(100))
+        await bot.say(rand.roll(100))
         return
     try:
-        await bot.say(f_roll(int(num)))
+        await bot.say(rand.roll(int(num)))
     except Exception as e:
-        print(f'User generated the error {e} after entering: "{num}')
+        print(f'User generated the error {e} after entering: "{num}""')
         await bot.say(f'Please use the correct format: !roll number')
 
 
 @bot.command()
 async def shorten(*args):
-    # Reduces a URL length for the user.
+    """Reduces a URL length for the user."""
     if not args:
         await bot.say('Please make sure to use the correct format: !shorten link')
     try:
@@ -161,7 +167,7 @@ async def shorten(*args):
 
 @bot.command()
 async def ud(*args):
-    # Defines a word using UrbanDictionary.com
+    """Defines a word using UrbanDictionary.com"""
     if not args:
         await bot.say('Please make sure you use the correct format: !ud word')
     try:
