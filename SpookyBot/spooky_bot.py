@@ -3,6 +3,10 @@
 import discord
 from discord.ext import commands
 
+import configparser
+config = configparser.ConfigParser()
+config.read('SpookyBot\\auth.ini')
+
 # Self-made functions / libraries
 from is_it_halloween import is_it_halloween
 from f_random import f_roll, f_flip
@@ -103,7 +107,7 @@ async def imgur(*args):
     # Scrapes a given sub-reddit for pictures and uploads them into
     # an Imgur album.
     await bot.say(imgur_upload.main(args))
-    
+
 
 @bot.command(pass_context=True)
 async def info(user: discord.Member):
@@ -117,7 +121,7 @@ async def info(user: discord.Member):
     embed.add_field(name="Joined", value=user.joined_at)
     embed.set_thumbnail(url=user.avatar_url)
     await bot.say(embed=embed)
-    
+
 
 @bot.command()
 async def reverse(*args):
@@ -173,6 +177,6 @@ async def ud(*args):
     except Exception as e:
         print(f'User generated the error {e} after entering: "{args}"')
         await bot.say("Sorry, your word or phrase wasn't found. :(")
-    
-    
-bot.run("INSERT BOT'S SECRET TOKEN HERE")
+
+
+bot.run(config.get('discord', 'token'))
