@@ -1,33 +1,36 @@
 # Spooky Bot Version 0.5.331
 # Written in Python 3.6.4
-import sys
+import sys, os
+sys.path.append(os.path.realpath('./resources'))
+
+# --- WILL BE REDUNDANT
+for root, dirs, files in os.walk(r'./commands'):
+    for dir in dirs[:3]:
+        sys.path.append(os.path.realpath(f'{root}/{dir}'))
+# ---
+
 import discord
-from discord.ext import commands
+from command_handler import CommandHandler
 
 import configparser
 config = configparser.ConfigParser()
-config.read('auth.ini')
+config.read('config.ini')
 
-initial_extensions = ['cogs.fun', 'cogs.reference', 'cogs.utility']
-
-bot = commands.Bot(command_prefix='b!', description=
-                   "Spooky Bot - So good it's spooky!", pm_help=True)
 client = discord.Client(max_messages=100)
 
+handler = CommandHandler(client, config)
 
-@bot.event
+handler.register_commands_in_dir('./commands')
+
+@client.event
 async def on_ready():
     print('Logged in as: ')
-    print(bot.user.name)
-    await bot.change_presence(game=discord.Game(name='spooky music'),
+    print(client.user.name)
+    await client.change_presence(game=discord.Game(name='spooky music'),
                               status=discord.Status.online)
 
-if __name__ == '__main__':
-    for extension in initial_extensions:
-        try:
-            bot.load_extension(extension)
-        except Exception as e:
-            print(f'Failed to load extension {extension}.', file = sys.stderr)
-            traceback.print_exc()
+@client.event
+async def on_message(message):
+    await handler.handle(message)
 
-bot.run(config.get('discord', 'token'))
+client.run(config['Discord']['token'])

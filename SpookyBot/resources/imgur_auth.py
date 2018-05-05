@@ -12,7 +12,7 @@ def authenticate():
     # Stores all secret authentication information
     # and logs in and generates PIN.
     config = configparser.ConfigParser()
-    config.read('../../auth.ini')
+    config.read('config.ini')
 
     client_id = config.get('ImgurInfo', 'client_id')
     client_secret = config.get('ImgurInfo', 'client_secret')
