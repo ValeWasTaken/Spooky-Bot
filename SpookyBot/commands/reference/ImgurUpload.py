@@ -6,7 +6,7 @@ from reddit_scraper import check_input, scrape
 from command import Command
 
 # Contains all hidden info (user,pass,ID,secret,etc)
-#imgur = authenticate()
+imgur = authenticate()
 
 class ImgurUpload(Command):
     def __init__(self, client):
