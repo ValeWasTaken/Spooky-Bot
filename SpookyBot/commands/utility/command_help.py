@@ -1,30 +1,6 @@
 # Python 3.6.4
 # Provides a list of all commands and their full usage.
 
-
-def h(query):
-    if query == 'commands':
-        return 'The current list of publicly available commands are: \n' \
-               '!answer question -- Answer any question Wolfram Alpha is capable of.\n' \
-               '!batfact -- Says a random bat fact!\n' \
-               '!check cryptocurrency_symbol -- Checks crypto price / info.\n' \
-               '!flip (amount) -- Flips a coin for you.\n' \
-               '!halloween -- Gives time until Halloween.\n' \
-               '!imgur subreddit sortType amount -- Scrapes a sub-reddit for images \
-               then uploads them to an Imgur album.\n' \
-               '!info @user -- Provides information on a Discord user.\n' \
-               '!reverse message -- Reverses and flips your message upside down.\n' \
-               '!roll (amount) -- Rolls a random number for you.\n'\
-               '!shorten URL -- Uses tiny_url.com to shorten your URL.\n'\
-               '!ud word -- Gives the Urban Dictionary definition of input.\n'\
-               'For more information on a command type "!commands (command)".'
-    else:
-        try:
-            return explain_command(query)
-        except Exception as e:
-            print(f'User was given {e} with input {query} while using "!help"')
-
-
 def explain_command(command):
     return {
         'answer':
