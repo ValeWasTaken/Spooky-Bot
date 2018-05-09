@@ -1,6 +1,7 @@
 # Python 3.6.4
 import praw
 
+
 def fix_subreddit(subreddit):
     # Formats any realistically possible subreddit URL into correct format.
     # i.e. remove HTTPS://www.reddit.com, /r/, r/, etc..

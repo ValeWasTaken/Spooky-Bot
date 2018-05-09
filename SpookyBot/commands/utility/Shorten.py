@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 from command import Command
 
+
 class Shorten(Command):
     def __init__(self, client):
         super().__init__(client)

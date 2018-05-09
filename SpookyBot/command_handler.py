@@ -1,6 +1,8 @@
-import os, inspect, importlib
-
+import os
+import inspect
+import importlib
 from command import Command
+
 
 class CommandHandler:
     def __init__(self, client, config):

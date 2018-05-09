@@ -1,10 +1,10 @@
 # Python 3.6.4
 import wolframalpha
 from command import Command
-
 import configparser
 config = configparser.ConfigParser()
 config.read('config.ini')
+
 
 class WolframAlpha(Command):
     def __init__(self, client):

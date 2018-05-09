@@ -1,9 +1,9 @@
+# Python 3.6.5
 from command import Command
-
 from random_fact import random_fact
 
-class Batfact(Command):
 
+class Batfact(Command):
 
     def __init__(self, client):
         super().__init__(client)

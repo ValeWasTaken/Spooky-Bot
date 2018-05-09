@@ -1,7 +1,8 @@
-# Python 3.6.4
+# Python 3.6.5
 # Gives remaining time until Halloween (PST)
 from command import Command
 from datetime import datetime as dt
+
 
 class Halloween(Command):
     def __init__(self, client):
@@ -9,7 +10,7 @@ class Halloween(Command):
         self.name = 'halloween'
         self.description = 'Gives time until Halloween.'
 
-    async def run(self, message, args):
+    async def run(self, message):
         await self.client.send_message(message.channel, self.is_it_halloween())
 
     def pl(self, num, unit):
@@ -17,7 +18,6 @@ class Halloween(Command):
 
         unit = '{} {}'.format(str(int(num)), unit)
         return unit + 's' if num > 1 or isinstance(num, float) or num == 0 else unit
-
 
     def clean_time(self, seconds):
         # Formats datetime data into simple English for the user.
@@ -28,7 +28,6 @@ class Halloween(Command):
         num = [days, hours, minutes, seconds]
         unit = ['day', 'hour', 'minute', 'second']
         return ', '.join(self.pl(num[x],unit[x]) for x in range(4))
-
 
     def is_it_halloween(self):
         # Checks time until Halloween.

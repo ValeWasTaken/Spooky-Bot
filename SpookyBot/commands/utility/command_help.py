@@ -1,6 +1,7 @@
 # Python 3.6.4
 # Provides a list of all commands and their full usage.
 
+
 def explain_command(command):
     return {
         'answer':

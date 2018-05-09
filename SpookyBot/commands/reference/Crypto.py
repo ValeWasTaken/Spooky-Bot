@@ -5,6 +5,7 @@ import urllib.request, discord
 from bs4 import BeautifulSoup
 from command import Command
 
+
 class Crypto(Command):
     def __init__(self, client):
         super().__init__(client)
@@ -35,7 +36,7 @@ class Crypto(Command):
         except Exception as e:
             print(f'User generated the error {e} whilst retrieving crypto info.')
             await self.client.send_message(message.channel, "Please use the correct format: '!check symbol'"
-                          "\nEx: '!check BTC' to check Bitcoin stats.")
+                                                            "\nEx: '!check BTC' to check Bitcoin stats.")
 
     def get_data(self):
         url = "https://cryptoreport.com/"
@@ -55,13 +56,11 @@ class Crypto(Command):
         # Then we put it all into one big list full of tuples. (1 tuple = 1 crypto)
         return list(zip(*[values[i::length] for i in range(length)]))
 
-
     def top_cryptos(self, amount):
         if amount > 20:
             return "Don't spam, keep your list to 20 or less please."
         else:
             return self.get_data()[:amount]
-
 
     def crypto_info(self, symbol):
         top_100 = self.get_data()

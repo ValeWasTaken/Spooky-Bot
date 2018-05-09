@@ -8,6 +8,7 @@ from command import Command
 # Contains all hidden info (user,pass,ID,secret,etc)
 imgur = authenticate()
 
+
 class ImgurUpload(Command):
     def __init__(self, client):
         super().__init__(client)
@@ -27,7 +28,6 @@ class ImgurUpload(Command):
         imgur.album_add_images(new_album['id'], images)
         return new_album
 
-
     def upload_image(self, title, link, count):
         # Uploads images to be placed inside the album.
         config = {
@@ -35,7 +35,6 @@ class ImgurUpload(Command):
             'title': title}
         image = imgur.upload_from_url(link, config=config, anon=False)
         return image
-
 
     def main(self, command):
         # Takes the inputted data and runs through the functions
@@ -48,6 +47,6 @@ class ImgurUpload(Command):
         for thread in range(threads):
             id.append(self.upload_image(titles[thread], links[thread], thread)['id'])
         album = self.make_album(f"Spooky Bot's /r/{subreddit} Album",
-                           'Created by Spooky Bot! -- discord.gg/vale',id)
+                                'Created by Spooky Bot! -- discord.gg/vale',id)
         album_url = album['id']
         return f'Here is your /r/{subreddit} album: https://imgur.com/a/{album_url}'

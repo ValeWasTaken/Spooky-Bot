@@ -2,6 +2,7 @@ from command import Command
 import discord
 from re import search
 
+
 class Info(Command):
     def __init__(self, client):
         super().__init__(client)

@@ -3,6 +3,7 @@
 # ˙(ǝsɐɔɹǝʍoן puɐ) uʍop ǝpısdn pǝddıןɟ ǝbɐssǝɯ ɐ suɹnʇǝɹ
 from command import Command
 
+
 class Reverse(Command):
     def __init__(self, client):
         super().__init__(client)

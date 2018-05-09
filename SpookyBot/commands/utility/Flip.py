@@ -1,6 +1,7 @@
 from random import randint
 from command import Command
 
+
 class Flip(Command):
     def __init__(self, client):
         super().__init__(client)

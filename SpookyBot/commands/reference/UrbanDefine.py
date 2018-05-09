@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup, Tag
 import urllib.request, discord
 from command import Command
 
+
 class UrbanDefine(Command):
     def __init__(self, client):
         super().__init__(client)
@@ -37,14 +38,12 @@ class UrbanDefine(Command):
                 result += x
         return result
 
-
     def clean(self, text):
         # Fix apostrophes. Makes sures not to end with newline.
         text = text.replace('&apos;', "'")
         if text.endswith('\n'):
             text = text[:-1]
         return text
-
 
     def ud_define(self, message):
         term = message.replace(' ', '+')  # Make the search term URL-friendly.
