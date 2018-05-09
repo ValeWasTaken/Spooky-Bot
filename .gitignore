@@ -6,4 +6,4 @@ selenium/
 *.cfg
 *.json
 *.log
-config.ini
+*.ini
