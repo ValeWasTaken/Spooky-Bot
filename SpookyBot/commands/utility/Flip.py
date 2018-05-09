@@ -1,3 +1,4 @@
+# Python 3.6.5
 from random import randint
 from command import Command
 
@@ -6,7 +7,11 @@ class Flip(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'flip'
-        self.description = 'Flips an input amount of coins for you.'
+        self.brief = 'Flips an input amount of coins for you.'
+        self.description = '!flip by default will return either heads or '\
+                           'tails. However, you can flip for any amount '\
+                           '1000000 or less. To do so, type "!flip number" '\
+                           'for example, "!flip 5000".'
 
     async def run(self, message, args):
         if not args or not args[0].isdigit() and not args[0].startswith('-'):

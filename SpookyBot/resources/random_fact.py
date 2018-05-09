@@ -1,3 +1,4 @@
+# Python 3.6.5
 from random import shuffle  # Used to randomly mix list of facts.
 import os
 

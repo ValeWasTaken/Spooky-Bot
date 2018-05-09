@@ -1,4 +1,4 @@
-# Python 3.6.4
+# Python 3.6.5
 # Returns a message flipped upside down (and lowercase).
 # ˙(ǝsɐɔɹǝʍoן puɐ) uʍop ǝpısdn pǝddıןɟ ǝbɐssǝɯ ɐ suɹnʇǝɹ
 from command import Command
@@ -8,7 +8,10 @@ class Reverse(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'reverse'
-        self.description = 'Reverses and flips your message upside down.'
+        self.brief = 'Reverses and flips your message upside down.'
+        self.description = '!reverse will reverse a sentence and then flip '\
+                           'it upside down. Example usage: '\
+                           '"!reverse Reverse this message please."'
 
     async def run(self, message, args):
         if not args:

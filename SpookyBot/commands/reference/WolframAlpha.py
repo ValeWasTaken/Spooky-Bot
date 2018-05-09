@@ -1,4 +1,4 @@
-# Python 3.6.4
+# Python 3.6.5
 import wolframalpha
 from command import Command
 import configparser
@@ -10,7 +10,13 @@ class WolframAlpha(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'answer'
-        self.description = 'Answer any question Wolfram Alpha is capable of.'
+        self.brief = 'Answer any question Wolfram Alpha is capable of.'
+        self.description = '!answer will answer any question capable '\
+                           'of the Wolfram Alpha engine. Most commonly '\
+                           'these are math questions, but feel free to '\
+                           'experiment with all kinds of questions! '\
+                           'Example inputs could be "!answer (22*5) '\
+                           '-4 / 11.2" or "!answer weather in Tokyo".'
 
     async def run(self, message, args):
         # Feeds the user input into Wolfram Alpha for an answer.

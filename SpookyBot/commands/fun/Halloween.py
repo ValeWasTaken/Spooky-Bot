@@ -8,7 +8,10 @@ class Halloween(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'halloween'
-        self.description = 'Gives time until Halloween.'
+        self.brief = 'Gives time until Halloween (PST).'
+        self.description = '!halloween finds the time remaining until Halloween. '\
+            'currently this only supports PST but will updated later. '\
+            'To call this command type "!halloween"'
 
     async def run(self, message):
         await self.client.send_message(message.channel, self.is_it_halloween())
@@ -50,5 +53,4 @@ class Halloween(Command):
             halloween = dt(now.year, 10, 31, 0, 0, 0)
             wait = halloween - now
             time = self.clean_time(wait.total_seconds())
-            return 'Just {} more to go until Halloween! '\
-                '(Well.. At least in PST ^^;)'.format(time)
+            return f'Just {time} more to go until Halloween (in PST)!'

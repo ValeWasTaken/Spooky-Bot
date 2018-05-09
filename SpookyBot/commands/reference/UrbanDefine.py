@@ -1,5 +1,7 @@
+# Python 3.6.5
+import urllib.request
+import discord
 from bs4 import BeautifulSoup, Tag
-import urllib.request, discord
 from command import Command
 
 
@@ -7,7 +9,10 @@ class UrbanDefine(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'ud'
-        self.description = 'Gives the Urban Dictionary definition of input.'
+        self.brief = 'Gives the Urban Dictionary definition of input.'
+        self.description = '!ud will search UrbanDictionary.com to find '\
+                           'your definition. To use this command '\
+                           'type "!ud word".'
 
     async def run(self, message, args):
         if not args:

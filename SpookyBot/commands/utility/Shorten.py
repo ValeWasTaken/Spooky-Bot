@@ -1,4 +1,4 @@
-# Python 3.6.4
+# Python 3.6.5
 from bs4 import BeautifulSoup
 import urllib.request
 from command import Command
@@ -8,7 +8,10 @@ class Shorten(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'shorten'
-        self.description = 'Uses tiny_url.com to shorten your URL.'
+        self.brief = 'Uses tiny_url.com to shorten your URL.'
+        self.description = '!shorten will use tinyurl.com to shorten the '\
+                           'length of your URL. To use this command '\
+                           'type "!shorten yourURLhere"'
 
     async def run(self, message, args):
         if not args:

@@ -1,3 +1,4 @@
+# Python 3.6.5
 from random import randint
 from command import Command
 
@@ -6,7 +7,11 @@ class Roll(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'roll'
-        self.description = 'Rolls a random number for you.'
+        self.brief = 'Rolls a random number for you.'
+        self.description = '!roll by default will return a random number '\
+                           'between 1 and 100. However, you can roll for '\
+                           'any amount 1000000 or less. To do so, type '\
+                           '"!roll number" for example, "!roll 5000".'
 
     async def run(self, message, args):
         if not args or not args[0].isdigit() and not args[0].startswith('-'):

@@ -1,4 +1,4 @@
-# Python 3.6.4
+# Python 3.6.5
 from imgurpython import ImgurClient
 import configparser
 from selenium import webdriver

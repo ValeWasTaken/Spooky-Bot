@@ -1,3 +1,4 @@
+# Python 3.6.5
 from command import Command
 import discord
 from re import search
@@ -7,7 +8,11 @@ class Info(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'info'
-        self.description = 'Provides information on a Discord user.'
+        self.brief = 'Provides information on a Discord user.'
+        self.description = '!info will give information about a user. At the '\
+                           'moment that information is: Name, Status, Join '\
+                           'Date, ID, and Highest role. To use this command '\
+                           'type "!info @name".'
 
     async def run(self, message, args):
         id

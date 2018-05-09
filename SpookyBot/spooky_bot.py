@@ -1,5 +1,5 @@
-# Spooky Bot Version 0.5.331
-# Written in Python 3.6.4
+# Spooky Bot Version 0.5.4
+# Written in Python 3.6.5
 import sys
 import os
 import discord

@@ -1,4 +1,4 @@
-# Python 3.6.4
+# Python 3.6.5
 # Fetches data on cryptocurrencies and allows the user to
 # either display it or compare it against other currencies.
 import urllib.request, discord
@@ -10,7 +10,11 @@ class Crypto(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'crypto'
-        self.description = 'Checks crypto price / info.'
+        self.brief = 'Checks crypto price / info.'
+        self.description = '!check returns the price and general information '\
+                           'for a given cryptocurrency. Currently it only '\
+                           'supports searching via symbol and only includes '\
+                           'top 100 cryptocurrencies. Example usage: "!check BTC".'
 
     async def run(self, message, args):
         if args[0] == 'top':

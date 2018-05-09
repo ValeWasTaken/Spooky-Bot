@@ -1,4 +1,4 @@
-# Python 3.6.4
+# Python 3.6.5
 # Create an Imgur PIN and store confidential information.
 from imgur_auth import authenticate
 # Check for proper input and scrape Reddit images.
@@ -13,7 +13,13 @@ class ImgurUpload(Command):
     def __init__(self, client):
         super().__init__(client)
         self.name = 'imgur'
-        self.description = 'Scrapes a sub-reddit for images then uploads them to an Imgur album.'
+        self.brief = 'Scrapes a sub-reddit for images then '\
+                     'uploads them to an Imgur album.'
+        self.description = '!imgur will search a given sub-reddit '\
+                           'according to a sort type (hot, new, or top) and '\
+                           'amount (25 or less) and then uploads the images '\
+                           'to an Imgur album. Example usage: '\
+                           '"!imgur programmer_humor new 20".'
 
     async def run(self, message, args):
         await self.client.send_message(message.channel, self.main(args))
