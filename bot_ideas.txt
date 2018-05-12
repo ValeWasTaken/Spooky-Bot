@@ -77,9 +77,6 @@ Regardless, here's a list of current feature ideas that have yet to be implement
   Allows Omegle users to chat inside the channel. Should allow variables such as setting topics, 
   the ability to kick users, and so forth.
   
-- 8 ball
-  Pretty straight forward, just add a magic 8 ball function that would work similar to f_facts.py
-  
 - Impersonate
   Use Markov chains to generate sentences based on what a person has said in the past.
   
@@ -101,5 +98,4 @@ Regardless, here's a list of current feature ideas that have yet to be implement
 
 - Expand URL function
   - Takes a URL that has been shorterned (by TinyURL, Bit.ly, etc..) 
-    and then returns it to its original state.
-- 
+    and then returns it to its original state. 
