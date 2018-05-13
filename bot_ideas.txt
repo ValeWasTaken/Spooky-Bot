@@ -7,6 +7,8 @@ Regardless, here's a list of current feature ideas that have yet to be implement
   Currently I have a function in place to check the price of a top 100 cryptocurrency using it's symbol.
   I also have the groundwork made for a function to display all the information for the top 1-100 currencies.
   However, my approach I am using currently is slow and needs optimization.
+  Perhaps it would be best to make a database and update the database once every 10-60 minutes, then simply 
+  call the data from the database?
   As for new features, we could add a converter. (Ex: 1 BTC = ?? LTC.)
   The biggest factor missing however is the ability to find info on non-top-100 currencies.
   We could also have a flag for in-depth info, such as price change over longer periods and history. Maybe even a graph.
@@ -75,9 +77,6 @@ Regardless, here's a list of current feature ideas that have yet to be implement
   Allows Omegle users to chat inside the channel. Should allow variables such as setting topics, 
   the ability to kick users, and so forth.
   
-- 8 ball
-  Pretty straight forward, just add a magic 8 ball function that would work similar to f_facts.py
-  
 - Impersonate
   Use Markov chains to generate sentences based on what a person has said in the past.
   
@@ -88,3 +87,15 @@ Regardless, here's a list of current feature ideas that have yet to be implement
   
 - Leaderboard system
   - Record post count, time in server, points, and so forth.
+
+- show (upload) random <subject> picture(s)
+  - For example if the user types "!cat" a picture of a cute cat is shown.
+  - Could be used for funny pictures, cute pictures, memes, etc.
+
+- Patch Note Reader
+  - Keeps track of patch notes for various popular games and links them or 
+    displays their contents for the user.
+
+- Expand URL function
+  - Takes a URL that has been shorterned (by TinyURL, Bit.ly, etc..) 
+    and then returns it to its original state. 
