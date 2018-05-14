@@ -6,20 +6,18 @@ import discord
 from command_handler import CommandHandler
 import configparser
 
-
+# This allows importing of everything in the "./resources" directory
 sys.path.append(os.path.realpath('./resources'))
 
-# --- WILL BE REDUNDANT
-for root, dirs, files in os.walk(r'./commands'):
-    for dir in dirs[:3]:
-        sys.path.append(os.path.realpath(f'{root}/{dir}'))
-# ---
-
+# Get the configuration file
 config = configparser.ConfigParser()
 config.read('config.ini')
 
+# Create a discord client
 client = discord.Client(max_messages=100)
+# Create a command handler
 handler = CommandHandler(client, config)
+# Register all commands
 handler.register_commands_in_dir('./commands')
 
 
@@ -33,6 +31,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    # Handle commands
     await handler.handle(message)
 
 client.run(config['Discord']['token'])
