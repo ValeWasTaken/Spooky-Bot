@@ -1,4 +1,4 @@
-# Spooky Bot Version 0.5.4
+# Spooky Bot Version 0.5.41
 # Written in Python 3.6.5
 import sys
 import os

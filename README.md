@@ -3,11 +3,12 @@ Spooky Bot
 
 Spooky Bot (SB) is a multi-purpose Discord bot written in Python 3.6.5
 
-Version 0.5.4 includes features such as:
+Version 0.5.41 includes features such as:
 
+- !8ball -- Answers any yes/no/maybe question.
 - !answer question -- Answer any question Wolfram Alpha is capable of.
 - !batfact -- Says a random bat fact!
-- !check cryptocurrency_symbol -- Checks crypto price / info.
+- !crypto cryptocurrency symbol -- Checks crypto price / info.
 - !help -- Generates a list of commands or gives more info on a command.
 - !flip (amount) -- Flips a coin for you.
 - !halloween -- Gives time until Halloween.
@@ -15,7 +16,7 @@ Version 0.5.4 includes features such as:
 - !info @user -- Provides information on a Discord user.
 - !reverse message -- Reverses and flips your message upside down.
 - !roll (amount) -- Rolls a random number for you.
-- !shorten URL -- Uses tiny_url.com to shorten your URL.
+- !shorten URL -- Uses tinyurl.com to shorten your URL.
 - !ud word -- Gives the Urban Dictionary definition of input.
 
 Screenshot example of some functions in action (roll, imgur, shorten, and ud):

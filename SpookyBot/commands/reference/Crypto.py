@@ -11,10 +11,11 @@ class Crypto(Command):
         super().__init__(client)
         self.name = 'crypto'
         self.brief = 'Checks crypto price / info.'
-        self.description = '!check returns the price and general information '\
+        self.description = '!crypto returns the price and general information '\
                            'for a given cryptocurrency. Currently it only '\
                            'supports searching via symbol and only includes '\
-                           'top 100 cryptocurrencies. Example usage: "!check BTC".'
+                           'top 100 cryptocurrencies. Example usage: '\
+                           '"!crypto info BTC".'
 
     async def run(self, message, args):
         if args[0] == 'top':
@@ -39,8 +40,9 @@ class Crypto(Command):
             await self.client.send_message(message.channel, embed=embed)
         except Exception as e:
             print(f'User generated the error {e} whilst retrieving crypto info.')
-            await self.client.send_message(message.channel, "Please use the correct format: '!check symbol'"
-                                                            "\nEx: '!check BTC' to check Bitcoin stats.")
+            await self.client.send_message(message.channel, 
+                    "Please use the correct format: '!crypto info symbol'"
+                    "\nEx: '!crypto info BTC' to check Bitcoin stats.")
 
     def get_data(self):
         url = "https://cryptoreport.com/"
