@@ -9,6 +9,10 @@ import configparser
 # This allows importing of everything in the "./resources" directory
 sys.path.append(os.path.realpath('./resources'))
 
+for root, dirs, files in os.walk(r'./commands'):
+    for dir in dirs[:3]:
+        sys.path.append(os.path.realpath(f'{root}/{dir}'))
+
 # Get the configuration file
 config = configparser.ConfigParser()
 config.read('config.ini')
